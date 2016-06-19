@@ -1,0 +1,20 @@
+
+.bar-nav ul{
+    border-bottom: 1px solid #1eaedb;
+}
+
+.bar-nav li {
+    display: inline-block;
+
+}
+.bar-nav a{
+    text-decoration: none;
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.bar-nav li.seleccionada {
+    border-top: 1px solid #1eaedb;
+    border-left: 1px solid #1eaedb;
+    border-right: 1px solid #1eaedb;
+}

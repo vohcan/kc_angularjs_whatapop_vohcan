@@ -1,0 +1,60 @@
+
+<div class="row" >
+
+    <div class="twelve columns">
+
+        <table class="u-full-width">
+
+            <!--filtro de productos-->
+            <label for="filtro-productos">Buscar producto</label>
+            <input
+                    id="filtro-productos"
+                    type="text"
+                    placeholder="poner nombre"
+                    ng-model="filtroProductos"
+                    ng-model-options="{debounce:1000}">
+            <div>
+                <button ng-click="$ctrl.mostrarPorCategoria(1)">Videojuegos</button>
+                <button ng-click="$ctrl.mostrarPorCategoria(2)">Películas</button>
+                <button ng-click="$ctrl.mostrarPorCategoria(3)">Libros</button>
+                <button ng-click="$ctrl.mostrarPorCategoria()">Todos</button>
+
+            </div>
+
+            <tbody>
+                <tr ng-repeat="producto in $ctrl.productos |filter:{name:filtroProductos}">
+                    <td>
+                        <img ng-src="{{$ctrl.obtenerRutaImg(producto.photos)}}" width="90" height="90">
+
+                    </td>
+                    <td>
+                       <div><h5>{{::producto.name}}</h5>
+
+                       </div>
+
+                        <div>
+                            <strong>{{::producto.category.name}}</strong>
+                        </div>
+                       <div>
+                            {{::producto.price | currency:"€"}}
+                        </div>
+                        <div>
+                            <p><strong>vendedor: </strong>{{::producto.seller.nick}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- En el array que pasamos a la directiva ngLink podemos indicar parámetros de
+                             ruta. Para ello, basta con pasar un JSON como segundo elemento. -->
+                        <a ng-link="['DetalleProducto', { id: producto.id }]">Detalles</a>
+
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <!--<ul>
+            <li ng-repeat="producto in $ctrl.productos">{{producto.name}}</li>
+        </ul>-->
+    </div>
+</div>
+<!--coleccion de productos-->

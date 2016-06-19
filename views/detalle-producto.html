@@ -1,0 +1,46 @@
+<div class="row">
+
+
+    <div class="eleven columns">
+        <h5>{{$ctrl.producto.name}}</h5>
+    </div>
+
+    <!-- Enlace para volver a la vista anterior -->
+    <div class="one column">
+        <a href="javascript:history.back();">Atrás</a>
+    </div>
+
+</div>
+<div class="row">
+
+    <!-- Imagen -->
+    <div class="five columns">
+        <img ng-src="{{$ctrl.obtenerRutaImg($ctrl.producto.photos)}}">
+    </div>
+
+    <div class="seven columns">
+
+
+        <div><p><strong>Decripción: </strong></p>
+           <p ng-bind-html="$ctrl.validarHtml($ctrl.producto.description)"></p>
+
+        </div>
+        <div>
+            <p><strong>Categoría: </strong>{{$ctrl.producto.category.name}}</p>
+
+        </div>
+        <div>
+            <p><strong>Precio: </strong>{{$ctrl.producto.price | currency:"€"}}</p>
+        </div>
+        <div>
+            <p><strong>Vendedor: </strong>{{$ctrl.producto.seller.nick}}</p>
+        </div>
+        <div>
+            <p><strong>Fecha: </strong>{{$ctrl.producto.published_date | date:'dd-MM-yyyy'}}</p>
+        </div>
+
+        <!-- Botón para eliminar
+        <button class="boton-eliminar u-full-width" ng-click="$ctrl.eliminarProducto()">Eliminar producto</button> -->
+    </div>
+
+</div>
