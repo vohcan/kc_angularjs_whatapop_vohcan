@@ -13,16 +13,21 @@
                     placeholder="poner nombre"
                     ng-model="filtroProductos"
                     ng-model-options="{debounce:1000}">
-            <div>
+
+            <filter-box></filter-box>
+
+            <!--<div>
                 <button ng-click="$ctrl.mostrarPorCategoria(1)">Videojuegos</button>
                 <button ng-click="$ctrl.mostrarPorCategoria(2)">Películas</button>
                 <button ng-click="$ctrl.mostrarPorCategoria(3)">Libros</button>
                 <button ng-click="$ctrl.mostrarPorCategoria()">Todos</button>
 
-            </div>
+            </div>-->
+
 
             <tbody>
                 <tr ng-repeat="producto in $ctrl.productos |filter:{name:filtroProductos}">
+                    <product-box></product-box>
                     <td>
                         <img ng-src="{{$ctrl.obtenerRutaImg(producto.photos)}}" width="90" height="90">
 
@@ -44,7 +49,7 @@
                     </td>
                     <td>
                         <!-- En el array que pasamos a la directiva ngLink podemos indicar parámetros de
-                             ruta. Para ello, basta con pasar un JSON como segundo elemento. -->
+                             ruta. Para ello, basta con pasar un JSON como segundo elemento.-->
                         <a ng-link="['DetalleProducto', { id: producto.id }]">Detalles</a>
 
                     </td>
